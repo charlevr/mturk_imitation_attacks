@@ -47,6 +47,8 @@ function make_slides(f) {
 
     button : function() {
       response = $("#text_response").val();
+      $(".err").hide();
+      $(".err_non_english").hide();
       if (response.length < 10) 
       {
         $(".err").show();
