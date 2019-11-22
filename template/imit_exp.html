@@ -1,0 +1,250 @@
+<html>
+
+<head>
+  <title>CoLaLab Imitation Detection</title>
+
+  <!--JS-->
+
+  <!-- external general utilities -->
+  <script src="../_shared/js/jquery-1.11.1.min.js "></script>
+  <script src="../_shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../_shared/js/underscore-min.js"></script>
+  <!-- if you want to draw stuff: -->
+  <!-- <script src="../_shared/js/raphael-min.js"></script> -->
+
+  <!-- cocolab experiment logic -->
+  <script src="../_shared/js/exp-V2.js"></script>
+  <script src="../_shared/js/stream-V2.js"></script>
+
+  <!-- cocolab general utilities -->
+  <script src="../_shared/js/mmturkey.js "></script>
+  <script src="../_shared/js/browserCheck.js"></script>
+  <script src="../_shared/js/utils.js"></script>
+  <!-- if you want to draw cute creatures (depends on raphael): -->
+  <!-- <script src="../_shared/js/ecosystem.js"></script> -->
+
+  <!-- experiment specific helper functions -->
+  <!-- <script src="js/local-utils.js"></script> -->
+
+  <!--CSS-->
+  <link href="../_shared/full-projects/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+  <link href="../_shared/css/cocolab-style.css" rel="stylesheet" type="text/css" />
+  <link href="css/local-style.css" rel="stylesheet" type="text/css" />
+
+  <!-- experiment file -->
+  <script src="js/imit_exp.js"></script>
+
+</head>
+
+<body onload="init();">
+  <noscript>This task requires JavaScript.</noscript>
+
+  <div class="slide" id="i0">
+    <img src="../_shared/images/CoLaLabLogo.jpg" alt="Stanford CoCoLab" id="cocologo"></img>
+    <p id="cocolab">University of California, Irvine CoLaLab</p>
+    <p id="instruct-text">You will be asked to respond to 5 prompts in the style of 5 different writers.
+      To accomplish this task, you will be given three 3 samples from each author.
+      The HIT should take about 30 minutes. Please answer to the best of your ability, thank you!</p>
+    <button id="start_button" type="button">Start Experiment</button>
+    <p id="legal">Legal information: By answering the following questions, you are participating in a study being
+      performed
+      by linguists in the University of California, Irvine Department of Language Science. If you have questions about
+      this research, please contact
+      Charles Rodriguez-De Vera at <a href="mailto://charlevr@uci.edu">charlevr@uci.edu</a> or Dr. Lisa Pearl, at
+      lpearl@uci.edu.
+      You must be at least 18 years old to participate. Your participation in this research is voluntary. You may
+      decline to answer
+      any or all of the following questions. You may decline further participation, at any time, without adverse
+      consequences.
+      Your anonymity is assured; the researchers who have requested your participation will not receive any personal
+      information about you.
+    </p>
+  </div>
+
+  <div class="slide" id="instructions">
+    <h3>Instructions</h3>
+    <p>You will be given 5 prompts and for each prompt, you will be given three writing samples from another writer.
+      Your task is analyze the writing style of this author and write your own email responding to the prompt
+      using the writer's style.
+      Imitate the writer and answer the prompt to the best of your ability. Below is a sample email with around 1000
+      characters:
+    </p>
+    <p>
+      Dear Hiring Manager,
+      </br>
+      I read your job posting for a Communications Director with interest. I am confident that my ten years of
+      experience in communications in both the private and public sector make me an ideal fit for the position.
+
+      In my position as Communications Director for XYZ Company, I wrote articles for the company website, managed guest
+      author submissions, and wrote and sent a weekly email newsletter to subscribers. I received consistent praise from
+      the director for my attention to detail and clear, straightforward writing style.
+
+      While Assistant Communications Director for Assemblyperson Susan Smith, I researched, drafted and amended
+      legislation, wrote press releases, and was responsible for office communications and correspondence.
+
+      I also have extensive experience writing on a freelance basis on labor issues, which, I believe, would be an ideal
+      match for this position. Articles are available for your review at:
+      </br>
+      URL
+      </br>
+      URL</br>
+      URL
+      </br>
+      Additional writing samples and my resume are attached. If I can provide you with any further information on my
+      background and qualifications, please let me know.
+
+      I look forward to hearing from you. Thank you for your consideration.
+      </br>
+      Sincerely,
+      </br>
+      Your Name
+    </p>
+    <button onclick="_s.button()">Continue</button>
+  </div>
+
+  <div class="slide" id="single_trial">
+    <p class="prompt_num">{{}}</p>
+
+
+    <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+      <b>Prompt</b></br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta varius varius. Proin feugiat velit vitae
+      libero tristique posuere. Curabitur quis risus in odio porta ultrices at ac leo. Nunc eget odio eget purus
+      imperdiet mattis. Nullam venenatis odio nibh, quis pellentesque mauris mollis eget. Fusce eget ante vitae est
+      vestibulum venenatis ut pulvinar justo. Integer tempus est diam, quis ultrices turpis dapibus quis. Aliquam in
+      massa dui. Phasellus convallis ipsum nec nibh euismod vulputate eget ut diam. In in dolor ultrices, consequat
+      mauris iaculis, iaculis leo. Sed lorem sem, convallis quis porttitor in, volutpat et lorem. Ut venenatis
+      tristique lectus, vel iaculis libero. Phasellus imperdiet ultrices ex et dignissim. Ut eleifend, orci id posuere
+      porttitor, dolor arcu porttitor mi, sed porttitor ipsum lacus id nibh. Suspendisse ac aliquet metus. Vivamus
+      hendrerit, diam sit amet ornare sodales, ligula orci sollicitudin orci, eget laoreet leo nulla auctor dolor.
+    </div>
+    <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+      <b>Prompt</b></br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta varius varius. Proin feugiat velit vitae
+      libero tristique posuere. Curabitur quis risus in odio porta ultrices at ac leo. Nunc eget odio eget purus
+      imperdiet mattis. Nullam venenatis odio nibh, quis pellentesque mauris mollis eget. Fusce eget ante vitae est
+      vestibulum venenatis ut pulvinar justo. Integer tempus est diam, quis ultrices turpis dapibus quis. Aliquam in
+      massa dui. Phasellus convallis ipsum nec nibh euismod vulputate eget ut diam. In in dolor ultrices, consequat
+      mauris iaculis, iaculis leo. Sed lorem sem, convallis quis porttitor in, volutpat et lorem. Ut venenatis
+      tristique lectus, vel iaculis libero. Phasellus imperdiet ultrices ex et dignissim. Ut eleifend, orci id posuere
+      porttitor, dolor arcu porttitor mi, sed porttitor ipsum lacus id nibh. Suspendisse ac aliquet metus. Vivamus
+      hendrerit, diam sit amet ornare sodales, ligula orci sollicitudin orci, eget laoreet leo nulla auctor dolor.
+    </div>
+    <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+      <b>Prompt</b></br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta varius varius. Proin feugiat velit vitae
+      libero tristique posuere. Curabitur quis risus in odio porta ultrices at ac leo. Nunc eget odio eget purus
+      imperdiet mattis. Nullam venenatis odio nibh, quis pellentesque mauris mollis eget. Fusce eget ante vitae est
+      vestibulum venenatis ut pulvinar justo. Integer tempus est diam, quis ultrices turpis dapibus quis. Aliquam in
+      massa dui. Phasellus convallis ipsum nec nibh euismod vulputate eget ut diam. In in dolor ultrices, consequat
+      mauris iaculis, iaculis leo. Sed lorem sem, convallis quis porttitor in, volutpat et lorem. Ut venenatis
+      tristique lectus, vel iaculis libero. Phasellus imperdiet ultrices ex et dignissim. Ut eleifend, orci id posuere
+      porttitor, dolor arcu porttitor mi, sed porttitor ipsum lacus id nibh. Suspendisse ac aliquet metus. Vivamus
+      hendrerit, diam sit amet ornare sodales, ligula orci sollicitudin orci, eget laoreet leo nulla auctor dolor.
+    </div>
+
+
+    <p class="prompt">{{}}</p>
+
+
+    <textarea type="text" id="text_response" rows="10" cols="100"></textarea>
+    <br>
+
+    <button onclick="char_count()">Check number of characters:</button>
+    <p class="num_chars">0</p>
+    <br>
+
+    <button onclick="_s.button()">Continue</button>
+
+    <p class="err">Please write more than 700 characters.</p>
+    <p class="err_non_english">Please write your response in English.</p>
+  </div>
+
+  <div class="slide" id="subj_info">
+    <div class="long_form">
+      <div class="subj_info_title">Additional information</div>
+      <p class="info">Answering these questions is optional, but will help us understand your answers.</p>
+      <p>Did you read the instructions and do you think you did the HIT correctly?</p>
+      <label><input type="radio" name="assess" value="No" />No</label>
+      <label><input type="radio" name="assess" value="Yes" />Yes</label>
+      <label><input type="radio" name="assess" value="Confused" />I was confused</label>
+
+      <p>Were there any problems or bugs in the experiment?</p>
+      <textarea id="problems" rows="2" cols="50"></textarea>
+
+      <p>What do you think is a fair price for the work you did?</p>
+      <textarea id="fairprice" rows="1" cols="10"></textarea>
+
+      <p>Gender:
+        <select id="gender">
+          <label>
+            <option value="" /></label>
+          <label>
+            <option value="Male" />Male</label>
+          <label>
+            <option value="Female" />Female</label>
+          <label>
+            <option value="Other" />Other</label>
+        </select>
+      </p>
+
+      <p>Age: <input type="text" id="age" /></p>
+
+      <p>Level Of Education:
+        <select id="education">
+          <label>
+            <option value="-1" /></label>
+          <label>
+            <option value="0" />Some High School</label>
+          <label>
+            <option value="1" />Graduated High School</label>
+          <label>
+            <option value="2" />Some College</label>
+          <label>
+            <option value="3" />Graduated College</label>
+          <label>
+            <option value="4" />Hold a higher degree</label>
+        </select>
+      </p>
+
+      <p>Native Language: <input type="text" id="language" /></p>
+      <label>(the language(s) spoken at home when you were a child)</label>
+
+      <p>Did you enjoy the hit?</p>
+      <select id="enjoyment">
+        <label>
+          <option value="-1"></option>
+        </label>
+        <label>
+          <option value="0">Worse than the Average HIT</option>
+        </label>
+        <label>
+          <option value="1">An Average HIT</option>
+        </label>
+        <label>
+          <option value="2">Better than average HIT</option>
+        </label>
+      </select>
+
+      <p>We would be interested in any comments you have about this experiment. Please type them here:</p>
+      <textarea id="comments" rows="3" cols="50"></textarea>
+      <br />
+      <button onclick="_s.submit()">Submit</button>
+    </div>
+  </div>
+
+  <div id="thanks" class="slide js">
+    <p class="big">Thanks for your Time!</p>
+  </div>
+
+  <div class="progress">
+    <span>Progress:</span>
+    <div class="bar-wrapper">
+      <div class="bar" width="0%">
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
