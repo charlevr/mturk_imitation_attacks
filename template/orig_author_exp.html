@@ -62,59 +62,84 @@
 
   <div class="slide" id="instructions">
     <h3>Instructions</h3>
-    <p>You will be given 7 prompts. Please answer the prompt with at least 700 characters as if you were emailing
-      someone.
-      Answer to the best of your ability. Below is a sample email with around 1000 characters:
+    <p>You will be given seven prompts. Please respond to the prompts as if you were emailing someone.
+      Each email must be at least 700 characters. Answer to the best of your ability. Below is a sample prompt and email
+      response
+      in the format that you will see in the experiment. The email shown is about 1000 characters long:
     </p>
-    <p>
-      Dear Hiring Manager,
-      </br>
-      I read your job posting for a Communications Director with interest. I am confident that my ten years of
-      experience in communications in both the private and public sector make me an ideal fit for the position.
-      </br>
-      In my position as Communications Director for XYZ Company, I wrote articles for the company website, managed guest
-      author submissions, and wrote and sent a weekly email newsletter to subscribers. I received consistent praise from
-      the director for my attention to detail and clear, straightforward writing style.
-      </br>
-      While Assistant Communications Director for Assemblyperson Susan Smith, I researched, drafted and amended
-      legislation, wrote press releases, and was responsible for office communications and correspondence.
-      </br>
-      I also have extensive experience writing on a freelance basis on labor issues, which, I believe, would be an ideal
-      match for this position. Articles are available for your review at:
-      </br>
-      URL
-      </br>
-      URL</br>
-      URL
-      </br>
-      Additional writing samples and my resume are attached. If I can provide you with any further information on my
-      background and qualifications, please let me know.
-      </br>
-      I look forward to hearing from you. Thank you for your consideration.
-      </br>
-      Sincerely,
-      </br>
-      Your Name
-    </p>
+
+    <div align="left">
+      <p>
+        <b>Prompt: </b>
+        </br>
+        </br>
+        Write a letter to a hiring manager describing
+        why you are the best fit for a communications director job.
+      </p>
+      <p>
+        <b>Response: </b>
+        </br>
+        </br>
+        Dear Hiring Manager,
+        </br>
+        </br>
+        I read your job posting for a Communications Director with interest. I am confident that my ten years of
+        experience in communications in both the private and public sector make me an ideal fit for the position.
+        In my position as Communications Director for XYZ Company, I wrote articles for the company website, managed
+        guest
+        author submissions, and wrote and sent a weekly email newsletter to subscribers. I received consistent praise
+        from
+        the director for my attention to detail and clear, straightforward writing style.
+        While Assistant Communications Director for Assemblyperson Susan Smith, I researched, drafted and amended
+        legislation, wrote press releases, and was responsible for office communications and correspondence.
+        I also have extensive experience writing on a freelance basis on labor issues, which, I believe, would be an
+        ideal
+        match for this position. Articles are available for your review at:
+        </br>
+        </br>
+        URL
+        </br>
+        URL
+        </br>
+        URL
+        </br>
+        </br>
+        Additional writing samples and my resume are attached. If I can provide you with any further information on my
+        background and qualifications, please let me know.
+        I look forward to hearing from you. Thank you for your consideration.
+        </br>
+        </br>
+        Sincerely,
+        </br>
+        Your Name
+      </p>
+
+    </div>
     <button onclick="_s.button()">Continue</button>
   </div>
 
   <div class="slide" id="single_trial">
-    <p class="prompt_num">{{}}</p>
-    <p class="prompt">{{}}</p>
+    <div align="left">
+      <b>Prompt: </b>
+      </br>
+      <p class="prompt">{{}}</p>
 
+      <b>Response: </b>
+      </br>
+      </br>
+      <textarea type="text" id="text_response" rows="10" cols="100"></textarea>
+      <br>
+      <br>
+      <button onclick="char_count()">Check number of characters:</button>
+      <p class="num_chars">0</p>
+      <br>
 
-    <textarea type="text" id="text_response" rows="10" cols="100"></textarea>
-    <br>
+      <button onclick="_s.button()">Continue</button>
 
-    <button onclick="char_count()">Check number of characters:</button>
-    <p class="num_chars">0</p>
-    <br>
+      <p class="err">Please write more than 700 characters.</p>
+      <p class="err_non_english">Please write your response in English.</p>
 
-    <button onclick="_s.button()">Continue</button>
-
-    <p class="err">Please write more than 700 characters.</p>
-    <p class="err_non_english">Please write your response in English.</p>
+    </div>
   </div>
 
   <div class="slide" id="subj_info">
