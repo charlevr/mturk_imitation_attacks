@@ -1,0 +1,293 @@
+<html>
+
+<head>
+  <title>CoLaLab Imitation Detection</title>
+
+  <!--JS-->
+
+  <!-- external general utilities -->
+  <script src="../_shared/js/jquery-1.11.1.min.js "></script>
+  <script src="../_shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../_shared/js/underscore-min.js"></script>
+  <!-- if you want to draw stuff: -->
+  <!-- <script src="../_shared/js/raphael-min.js"></script> -->
+
+  <!-- cocolab experiment logic -->
+  <script src="../_shared/js/exp-V2.js"></script>
+  <script src="../_shared/js/stream-V2.js"></script>
+
+  <!-- cocolab general utilities -->
+  <script src="../_shared/js/mmturkey.js "></script>
+  <script src="../_shared/js/browserCheck.js"></script>
+  <script src="../_shared/js/utils.js"></script>
+  <!-- if you want to draw cute creatures (depends on raphael): -->
+  <!-- <script src="../_shared/js/ecosystem.js"></script> -->
+
+  <!-- experiment specific helper functions -->
+  <!-- <script src="js/local-utils.js"></script> -->
+
+  <!--CSS-->
+  <link href="../_shared/full-projects/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+  <link href="../_shared/css/cocolab-style.css" rel="stylesheet" type="text/css" />
+  <link href="css/local-style.css" rel="stylesheet" type="text/css" />
+
+  <!-- experiment file -->
+  <script src="js/imit_exp_pilot.js"></script>
+
+</head>
+
+<body onload="init();">
+  <noscript>This task requires JavaScript.</noscript>
+
+  <div class="slide" id="i0">
+    <img src="../_shared/images/CoLaLabLogo.jpg" alt="Stanford CoCoLab" id="cocologo"></img>
+    <p id="cocolab">University of California, Irvine CoLaLab</p>
+    <p id="instruct-text">You will be asked to respond to a prompt in the style of another writer.
+      To accomplish this task, you will be given three 3 samples from the writer.
+      The HIT should take about 5 minutes. Please answer to the best of your ability, thank you!</p>
+    <button id="start_button" type="button">Start Experiment</button>
+    <p id="legal">Legal information: By answering the following questions, you are participating in a study being
+      performed
+      by language scientists in the University of California, Irvine Department of Language Science. If you have
+      questions about
+      this research, please contact
+      Charles Rodriguez-De Vera at <a href="mailto://charlevr@uci.edu">charlevr@uci.edu</a> or Dr. Lisa Pearl, at
+      lpearl@uci.edu.
+      You must be at least 18 years old to participate. Your participation in this research is voluntary. You may
+      decline to answer
+      any or all of the following questions. You may decline further participation, at any time, without adverse
+      consequences.
+      Your anonymity is assured; the researchers who have requested your participation will not receive any personal
+      information about you.
+    </p>
+  </div>
+
+  <div class="slide" id="instructions">
+    <h3>Instructions</h3>
+    <p>You will be given one prompt and three messages written by another author
+      responding to three different prompts. Your task is to analyze the style of the other
+      person i.e. the way the other person writes, and respond to your prompt using
+      that style. Write your message as if you were writing an email. Your message must
+      be in English and at least 700 characters long. For reference, that is about three quarters
+      of the text box that you will be given. Below is an example of the format of the experiment and the
+      approximate length of each message that you will read and write. Latin
+      filler text is used here for demonstration purposes only.
+    </p>
+
+    <div align="left">
+      <b>The emails that you will copy the style of: </b></br>
+      </br>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        <b>Prompt 1</b></br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta varius varius. Proin feugiat velit vitae
+        libero tristique posuere. Curabitur quis risus in odio porta ultrices at ac leo. Nunc eget odio eget purus
+        imperdiet mattis. Nullam venenatis odio nibh, quis pellentesque mauris mollis eget. Fusce eget ante vitae est
+        vestibulum venenatis ut pulvinar justo. Integer tempus est diam, quis ultrices turpis dapibus quis. Aliquam in
+        massa dui. Phasellus convallis ipsum nec nibh euismod vulputate eget ut diam. In in dolor ultrices, consequat
+        mauris iaculis, iaculis leo. Sed lorem sem, convallis quis porttitor in, volutpat et lorem. Ut venenatis
+        tristique lectus, vel iaculis libero. Phasellus
+      </div>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        <b>Prompt 2</b></br>
+        Nunc neque nisi, mattis vitae ornare id, tempor ac erat. Cras gravida condimentum mollis. Mauris lacinia
+        fringilla sem, sed feugiat purus tristique vitae. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Aenean sed facilisis dolor. Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas. In euismod, neque a vestibulum facilisis, dui metus sodales leo, et
+        semper quam ligula at ante. Ut at nunc eget lorem sodales fringilla. Fusce posuere lorem eget ornare fringilla.
+        Suspendisse tincidunt semper justo, ut imperdiet massa condimentum vitae.
+      </div>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        <b>Prompt 3</b></br>
+        Ut id dui eget felis imperdiet vulputate nec eu purus. Morbi elementum ut neque non mollis. Mauris hendrerit
+        tellus eget scelerisque feugiat. Morbi lacinia nisi nec nunc porttitor, nec fringilla erat suscipit. Donec
+        placerat leo eros, nec luctus nisl ornare sed. Duis condimentum pulvinar elit, sit amet euismod elit bibendum
+        eget. Curabitur lacus massa, efficitur ac fermentum volutpat, fringilla quis turpis. Vivamus pellentesque erat
+        id velit convallis pellentesque. Quisque elit lorem, ultricies nec urna sit amet, venenatis faucibus nisi.
+        Pellentesque pharetra ante ut dolor iaculis, eu fermentum enim semper. Nulla consequat elit vel interdum
+        molestie. Nulla ullamcorper ligula vitae sodales pretium. Pellentesque rhoncus tristique neque in laoreet.
+      </div>
+
+      <p>
+        <b>Your Prompt: </b>
+        </br>
+        </br>
+        Write a response to the Roman emperor describing what happened today.
+      </p>
+      <p>
+        <b>Your Response: </b>
+        </br>
+        </br>
+        Cras venenatis nibh posuere erat gravida, et feugiat odio feugiat. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Suspendisse cursus nunc nec turpis rhoncus, vitae imperdiet
+        lorem feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec
+        eget risus sit amet massa iaculis egestas gravida ac nibh. Mauris id justo non ex viverra facilisis a in urna.
+        Cras facilisis mi ante, ultrices convallis tortor dignissim at. Suspendisse varius, lacus in lobortis blandit,
+        tortor lacus pharetra mi, in vulputate dolor risus ut ex. Nulla posuere tempus nulla et vehicula. Proin
+        tristique viverra odio eget ultrices.
+      </p>
+      <button onclick="_s.button()">Continue</button>
+    </div>
+  </div>
+
+
+  <div class="slide" id="single_trial">
+    </br>
+    </br>
+    <div align="left">
+      <b>The emails that you will copy the style of: </b></br>
+      </br>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        <b>You need to ask a relatively wealthy relative (it could be any relative) for some money. Formulate a
+          story/message that asking that relative what you need the money for, when you need it, why you need it, and
+          how
+          they should give it to you.</b></br>
+        </br>
+        Hi Auntie!
+        I'm actually really broke right now and I need a lot of money. This is because somebody broke into my house and
+        stole all of valuables and found the safe that I stored all of my money in! Crazy, right? Anyways, I need to get
+        a new car, new furniture, new appliances, and pretty much new everything and I need your help. I was thinking of
+        getting this brand new car that came out that isn't too expensive! It costs like $22,000 if you don't mind
+        fronting that. Also, my fridge does still work but a new one would honestly be great! Like it really does suck
+        that I lost all my money and I could really use all the help I can get. Would you mind just using paypal to wire
+        me maybe $30,000? That shouldn't be too bad right? Thank you!!
+      </div>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        <b>You are extremely late for an important meeting with top-level executives in the company that you work for.
+          Create a story for why you were late will convince them not to fire you.</b></br>
+        </br>
+        Hi everyone!
+        I'm so so sorry that I am late for this meeting! I know that this was very important but I really had no control
+        over why I was late. I can explain why I'm 3 hours late! I hope you enjoyed the lunch I ordered for everyone. So
+        first of all, my dog ate my phone! It had my alarms so I couldn't wake up on time. After that, I rushed to go
+        get ready and went into my car. Then there was so much traffic! The freeway collapsed so I was stuck there for
+        like 2 hours. Then whats crazy is that I was rushing so much that I forgot to fill up my gas tank! So there I
+        was in the middle of the freeway when my car suddenly ran out of gas. I can't make this stuff up. That's when I
+        called the catering services to get everyone lunch. Please understand as I really had no control over the
+        situation and I am still in traffic. Thank you!
+      </div>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        <b>You have gotten into an accident that was nearly fatal. Explain to your mother what/when/where/how/why you
+          got into that accident. </b></br>
+        </br>
+        Hi mom!
+        Okay, don't be worried, but I just got into a car accident in that new Mercedes Benz you and dad just got me.
+        I'm at the hospital right now in the ICU after they operated on my head. Everything's fine though! So what
+        happened was I was out partying with my friends and I really wanted to go home before curfew. I really didn't
+        drink that much so I drove myself. Then all of a sudden, on the intersection, some bozo showed up out of nowhere
+        and t-boned my car! How dare they! They said their light was green and mine was red but I swear I saw a green
+        light on my side! This was a last night and I have been at the hospital ever since. Man, I hope people are more
+        careful driving, especially since my car was so nice! Would you mind picking me up after i get released? Thanks
+        mom!
+      </div>
+
+      </br>
+      </br>
+      <b>Your Prompt: </b>
+      </br>
+      <p class="prompt">{{}}</p>
+
+      <b>Your Response: </b>
+      </br>
+      </br>
+      <textarea type="text" id="text_response" rows="10" cols="100"></textarea>
+      <br>
+
+      <button onclick="char_count()">Check number of characters:</button>
+      <p class="num_chars">0</p>
+      <br>
+
+      <button onclick="_s.button()">Continue</button>
+
+      <p class="err">Please write more than 700 characters.</p>
+      <p class="err_non_english">Please write your response in English.</p>
+    </div>
+  </div>
+
+  <div class="slide" id="subj_info">
+    <div class="long_form">
+      <div class="subj_info_title">Additional information</div>
+      <p class="info">Answering these questions is optional, but will help us understand your answers.</p>
+      <p>Did you read the instructions and do you think you did the HIT correctly?</p>
+      <label><input type="radio" name="assess" value="No" />No</label>
+      <label><input type="radio" name="assess" value="Yes" />Yes</label>
+      <label><input type="radio" name="assess" value="Confused" />I was confused</label>
+
+      <p>Were there any problems or bugs in the experiment?</p>
+      <textarea id="problems" rows="2" cols="50"></textarea>
+
+      <p>What do you think is a fair price for the work you did?</p>
+      <textarea id="fairprice" rows="1" cols="10"></textarea>
+
+      <p>Gender:
+        <select id="gender">
+          <label>
+            <option value="" /></label>
+          <label>
+            <option value="Male" />Male</label>
+          <label>
+            <option value="Female" />Female</label>
+          <label>
+            <option value="Other" />Other</label>
+        </select>
+      </p>
+
+      <p>Age: <input type="text" id="age" /></p>
+
+      <p>Level Of Education:
+        <select id="education">
+          <label>
+            <option value="-1" /></label>
+          <label>
+            <option value="0" />Some High School</label>
+          <label>
+            <option value="1" />Graduated High School</label>
+          <label>
+            <option value="2" />Some College</label>
+          <label>
+            <option value="3" />Graduated College</label>
+          <label>
+            <option value="4" />Hold a higher degree</label>
+        </select>
+      </p>
+
+      <p>Native Language: <input type="text" id="language" /></p>
+      <label>(the language(s) spoken at home when you were a child)</label>
+
+      <p>Did you enjoy the hit?</p>
+      <select id="enjoyment">
+        <label>
+          <option value="-1"></option>
+        </label>
+        <label>
+          <option value="0">Worse than the Average HIT</option>
+        </label>
+        <label>
+          <option value="1">An Average HIT</option>
+        </label>
+        <label>
+          <option value="2">Better than average HIT</option>
+        </label>
+      </select>
+
+      <p>We would be interested in any comments you have about this experiment. Please type them here:</p>
+      <textarea id="comments" rows="3" cols="50"></textarea>
+      <br />
+      <button onclick="_s.submit()">Submit</button>
+    </div>
+  </div>
+
+  <div id="thanks" class="slide js">
+    <p class="big">Thanks for your Time!</p>
+  </div>
+
+  <div class="progress">
+    <span>Progress:</span>
+    <div class="bar-wrapper">
+      <div class="bar" width="0%">
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

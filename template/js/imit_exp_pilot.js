@@ -15,15 +15,12 @@ function make_slides(f) {
     }
   });
 
-  curr_index = 0;
+  curr_index = 0
 
   prompts = [
-    "You need to ask a relatively wealthy relative (it could be any relative) for some money. Formulate a story/message that asking that relative what you need the money for, when you need it, why you need, and how they should give it to you. ",
-    "You are extremely late for an important meeting with top-level executives in the company that you work for. Create a story for why you were late that will convince them not to fire you. ", 
-    "You have gotten into an accident that was nearly fatal. Explain to your mother what/when/where/how/why you got into that accident. ",
     "You are a supervisor and you have to push back an important meeting with your supervisees. What happened and how do you tell them?",
     "You borrowed your friend's car and you crashed it. It is now completely broken. How do you explain what happened? What do you do?",
-    "You must sell your cell phone/tablet. However, the condition of the house is not satisfactory and you currently do not have the funds to fix it. Using any tactic, how would you sell your phone/tablet?",
+    "You must sell your house/cell phone/tablet. However, the condition of the house is not satisfactory and you currently do not have the funds to fix it. Using any tactic, how would you sell your house?",
     "You need your mom's password to access an important account that you have under her name. What is your plan to convince her to give you her password?"
   ]
 
@@ -34,17 +31,14 @@ function make_slides(f) {
     name: "single_trial",
 
     start: function() {
-      //Clears the text box
       $("#text_response").val('');
 
-      //Gets random index between from 0-6. 
-      curr_index = Math.floor(Math.random() * 7);
-
-      //Hides error messages
+      //Gets random index between from 0-4. 
+      curr_index = Math.floor(Math.random() * 4);
+      
       $(".err").hide();
       $(".err_non_english").hide();
 
-      //Displays the prompt number as well as the prompt itself. 
       $(".prompt").html(prompts[curr_index]);
     },
 
@@ -68,7 +62,7 @@ function make_slides(f) {
           "prompt" : prompts[curr_index]
         });
         $(".num_chars").html('0');
-        exp.go()
+        exp.go(); 
       }
       
       
