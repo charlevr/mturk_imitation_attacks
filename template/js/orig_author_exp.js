@@ -18,11 +18,11 @@ function make_slides(f) {
   curr_index = 0
 
   prompts = [
-    "You need to ask a relatively wealthy relative (it could be any relative) for some money. Formulate a story/message that asking that relative what you need the money for, when you need it, why you need, and how they should give it to you. ",
-    "You are extremely late for an important meeting with top-level executives in the company that you work for. Create a story for why you were late will convince them not to fire you. ", 
+    "You need to ask a relatively wealthy relative (it could be any relative) for some money. Formulate a story/message that is asking that relative what you need the money for, when you need it, why you need it, and how they should give it to you. ",
+    "You are extremely late for an important meeting with top-level executives in the company that you work for. Create a story for why you were late that will convince them not to fire you. ", 
     "You have gotten into an accident that was nearly fatal. Explain to your mother what/when/where/how/why you got into that accident. ",
     "You are a supervisor and you have to push back an important meeting with your supervisees. What happened and how do you tell them?",
-    "You borrowed your friend's car and you crashed it. It is now completely broken. How do you explain what happened? What do you do?",
+    "You borrowed your friend's favorite expensive car and you crashed it. It is now completely broken. How do you explain what happened? What do you do?",
     "You must sell your cell phone or tablet device. However, the condition of the device is not satisfactory and you currently do not have the funds to fix it. Using any tactic, how would you sell your device?",
     "You need your mom's password to access an important account that you have under her name. What is your plan to convince her to give you her password?"
   ]
@@ -46,7 +46,7 @@ function make_slides(f) {
       $(".err_same").hide();
 
       $(".prompt_num").html("This is prompt #"  + (stim+1));
-      $(".prompt").html(prompts[stim]);
+      $(".prompt").html("<b>"+prompts[stim]+"</b>");
     },
 
     button : function() {
