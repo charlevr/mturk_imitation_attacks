@@ -52,7 +52,7 @@ function make_slides(f) {
       $(".err_non_english").hide();
       $(".err_same").hide();
 
-      if (response.replace(/ /g,'').trim().length < 700) 
+      if (response.replace(/  /g,'').trim().length < 700) 
       {
         $(".err").show();
       } 
@@ -118,7 +118,7 @@ function make_slides(f) {
 
 function char_count()
 {
-  len = $("#text_response").val().replace(/ /g,'').trim().length;
+  len = $("#text_response").val().replace(/  /g,'').trim().length;
   $(".num_chars").html(len);
 }
 
