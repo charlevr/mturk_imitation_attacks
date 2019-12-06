@@ -49,7 +49,7 @@ function make_slides(f) {
     },
 
     button : function() {
-      response = $("#text_response").val();
+      response = $("#text_response").val().trim();
       $(".err").hide();
       $(".err_non_english").hide();
       if (response.length < 700) 
