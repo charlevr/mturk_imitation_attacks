@@ -33,6 +33,7 @@
 
   <!-- experiment file -->
   <script src="js/imit_exp.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
 
 </head>
 
@@ -69,95 +70,123 @@
       Imitate the writer and answer the prompt to the best of your ability. Below is a sample email with around 1000
       characters:
     </p>
-    <p>
-      Dear Hiring Manager,
+    <div align="left">
+      <b>The emails that you will copy the style of: </b>
       </br>
-      I read your job posting for a Communications Director with interest. I am confident that my ten years of
-      experience in communications in both the private and public sector make me an ideal fit for the position.
+      <i>These text boxes are scrollable.</i>
+      </br>
+      </br>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        Hi Auntie!
+        I'm actually really broke right now and I need a lot of money. This is because somebody broke into my house and
+        stole all of valuables and found the safe that I stored all of my money in! Crazy, right? Anyways, I need to get
+        a new car, new furniture, new appliances, and pretty much new everything and I need your help. I was thinking of
+        getting this brand new car that came out that isn't too expensive! It costs like $22,000 if you don't mind
+        fronting that. Also, my fridge does still work but a new one would honestly be great! Like it really does suck
+        that I lost all my money and I could really use all the help I can get. Would you mind just using paypal to wire
+        me maybe $30,000? That shouldn't be too bad right? Thank you!!
+      </div>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        Hi everyone!
+        I'm so so sorry that I am late for this meeting! I know that this was very important but I really had no
+        control
+        over why I was late. I can explain why I'm 3 hours late! I hope you enjoyed the lunch I ordered for
+        everyone. So
+        first of all, my dog ate my phone! It had my alarms so I couldn't wake up on time. After that, I rushed to
+        go
+        get ready and went into my car. Then there was so much traffic! The freeway collapsed so I was stuck there
+        for
+        like 2 hours. Then whats crazy is that I was rushing so much that I forgot to fill up my gas tank! So there
+        I
+        was in the middle of the freeway when my car suddenly ran out of gas. I can't make this stuff up. That's
+        when I
+        called the catering services to get everyone lunch. Please understand as I really had no control over the
+        situation and I am still in traffic. Thank you!
+      </div>
+      <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+        Hi mom!
+        Okay, don't be worried, but I just got into a car accident in that new Mercedes Benz you and dad just got me.
+        I'm at the hospital right now in the ICU after they operated on my head. Everything's fine though! So what
+        happened was I was out partying with my friends and I really wanted to go home before curfew. I really didn't
+        drink that much so I drove myself. Then all of a sudden, on the intersection, some bozo showed up out of nowhere
+        and t-boned my car! How dare they! They said their light was green and mine was red but I swear I saw a green
+        light on my side! This was a last night and I have been at the hospital ever since. Man, I hope people are more
+        careful driving, especially since my car was so nice! Would you mind picking me up after i get released? Thanks
+        mom!
+      </div>
 
-      In my position as Communications Director for XYZ Company, I wrote articles for the company website, managed guest
-      author submissions, and wrote and sent a weekly email newsletter to subscribers. I received consistent praise from
-      the director for my attention to detail and clear, straightforward writing style.
+      <p>
+        <b>Your Prompt: </b>
+        </br>
+        </br>
+        <b>Tell your dad about your day.</b>
+      </p>
+      <p>
+        <b>Your Response:</b>
+        </br>
+        </br>
+        Oh hey Dad! How's it going? Let me tell you about my day today, you won't believe it. First of
+        all, I woke up late and so I had to hurry and run to the bus stop. On my way to the bus stop I was trying
+        to review for my final when I tripped on air and went flying to the ground! It's okay though, I was still able
+        to make it to the bus stop. I scratched up my legs and arms kind of bad but I had more important things to worry
+        about! So I stood up, dusted myself off and continued my sprint to the bus stop. As I was running and looking at
+        my notes I realized that I had the wrong notebook with me! Everything was still fine though because eventually
+        I made it to the bus stop and I was actually on time for the test! Anyways, the test went okay but I was still
+        scratched up and sore from faceplanting onto the ground. It could've been much worse though! Anyways, hope your
+        day was less stressful than mine Dad!
+        </b>
+        </br>
+        </br>
 
-      While Assistant Communications Director for Assemblyperson Susan Smith, I researched, drafted and amended
-      legislation, wrote press releases, and was responsible for office communications and correspondence.
-
-      I also have extensive experience writing on a freelance basis on labor issues, which, I believe, would be an ideal
-      match for this position. Articles are available for your review at:
-      </br>
-      URL
-      </br>
-      URL</br>
-      URL
-      </br>
-      Additional writing samples and my resume are attached. If I can provide you with any further information on my
-      background and qualifications, please let me know.
-
-      I look forward to hearing from you. Thank you for your consideration.
-      </br>
-      Sincerely,
-      </br>
-      Your Name
-    </p>
-    <button onclick="_s.button()">Continue</button>
+      </p>
+      <button onclick="_s.button()">Continue</button>
+    </div>
   </div>
 
   <div class="slide" id="single_trial">
-    <p class="prompt_num">{{}}</p>
+    </br>
+    </br>
+    <div align="left">
+      <b>The emails that you will copy the style of: </b>
+      </br>
+      <i>These text boxes are scrollable.</i>
+      </br>
+      </br>
+      <div class="prompt_1" style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+      </div>
 
+      <div class="prompt_2" style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+      </div>
 
-    <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
-      <b>Prompt</b></br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta varius varius. Proin feugiat velit vitae
-      libero tristique posuere. Curabitur quis risus in odio porta ultrices at ac leo. Nunc eget odio eget purus
-      imperdiet mattis. Nullam venenatis odio nibh, quis pellentesque mauris mollis eget. Fusce eget ante vitae est
-      vestibulum venenatis ut pulvinar justo. Integer tempus est diam, quis ultrices turpis dapibus quis. Aliquam in
-      massa dui. Phasellus convallis ipsum nec nibh euismod vulputate eget ut diam. In in dolor ultrices, consequat
-      mauris iaculis, iaculis leo. Sed lorem sem, convallis quis porttitor in, volutpat et lorem. Ut venenatis
-      tristique lectus, vel iaculis libero. Phasellus imperdiet ultrices ex et dignissim. Ut eleifend, orci id posuere
-      porttitor, dolor arcu porttitor mi, sed porttitor ipsum lacus id nibh. Suspendisse ac aliquet metus. Vivamus
-      hendrerit, diam sit amet ornare sodales, ligula orci sollicitudin orci, eget laoreet leo nulla auctor dolor.
+      <div class="prompt_3" style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
+      </div>
+
+      </br>
+      </br>
+      <b>Your Prompt: </b>
+      </br>
+      <p class="prompt">{{}}</p>
+
+      <b>Your Response: </b>
+      </br>
+      <i>(remember, your response should be in English with at least 700 characters)</i>
+      </br>
+      </br>
+      <textarea type="text" id="text_response" rows="10" cols="100"></textarea>
+      <br>
+
+      <button onclick="char_count()">Check number of characters:</button>
+      <p class="num_chars">0</p>
+      <br>
+
+      <button onclick="_s.button()">Continue</button>
+
+      <p class="err">Please write more than 700 characters.</p>
+      <p class="err_non_english">Please write your response in English.</p>
+      <p class="err_same">Please make your response more different from the sample response
+        and your previous responses.
+      </p>
     </div>
-    <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
-      <b>Prompt</b></br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta varius varius. Proin feugiat velit vitae
-      libero tristique posuere. Curabitur quis risus in odio porta ultrices at ac leo. Nunc eget odio eget purus
-      imperdiet mattis. Nullam venenatis odio nibh, quis pellentesque mauris mollis eget. Fusce eget ante vitae est
-      vestibulum venenatis ut pulvinar justo. Integer tempus est diam, quis ultrices turpis dapibus quis. Aliquam in
-      massa dui. Phasellus convallis ipsum nec nibh euismod vulputate eget ut diam. In in dolor ultrices, consequat
-      mauris iaculis, iaculis leo. Sed lorem sem, convallis quis porttitor in, volutpat et lorem. Ut venenatis
-      tristique lectus, vel iaculis libero. Phasellus imperdiet ultrices ex et dignissim. Ut eleifend, orci id posuere
-      porttitor, dolor arcu porttitor mi, sed porttitor ipsum lacus id nibh. Suspendisse ac aliquet metus. Vivamus
-      hendrerit, diam sit amet ornare sodales, ligula orci sollicitudin orci, eget laoreet leo nulla auctor dolor.
-    </div>
-    <div style="height:300px;width:400px;border:1px;overflow:auto;display: inline-block">
-      <b>Prompt</b></br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta varius varius. Proin feugiat velit vitae
-      libero tristique posuere. Curabitur quis risus in odio porta ultrices at ac leo. Nunc eget odio eget purus
-      imperdiet mattis. Nullam venenatis odio nibh, quis pellentesque mauris mollis eget. Fusce eget ante vitae est
-      vestibulum venenatis ut pulvinar justo. Integer tempus est diam, quis ultrices turpis dapibus quis. Aliquam in
-      massa dui. Phasellus convallis ipsum nec nibh euismod vulputate eget ut diam. In in dolor ultrices, consequat
-      mauris iaculis, iaculis leo. Sed lorem sem, convallis quis porttitor in, volutpat et lorem. Ut venenatis
-      tristique lectus, vel iaculis libero. Phasellus imperdiet ultrices ex et dignissim. Ut eleifend, orci id posuere
-      porttitor, dolor arcu porttitor mi, sed porttitor ipsum lacus id nibh. Suspendisse ac aliquet metus. Vivamus
-      hendrerit, diam sit amet ornare sodales, ligula orci sollicitudin orci, eget laoreet leo nulla auctor dolor.
-    </div>
-
-
-    <p class="prompt">{{}}</p>
-
-
-    <textarea type="text" id="text_response" rows="10" cols="100"></textarea>
-    <br>
-
-    <button onclick="char_count()">Check number of characters:</button>
-    <p class="num_chars">0</p>
-    <br>
-
-    <button onclick="_s.button()">Continue</button>
-
-    <p class="err">Please write more than 700 characters.</p>
-    <p class="err_non_english">Please write your response in English.</p>
   </div>
 
   <div class="slide" id="subj_info">
