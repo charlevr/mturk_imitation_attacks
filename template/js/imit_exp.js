@@ -11,6 +11,14 @@ function make_slides(f) {
   slides.instructions = slide({
     name : "instructions",
     button : function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:8888" , false);
+      xhr.send("yellow");
+
+      // TODO: make this work for asynch, if necessary. 
+      console.log(xhr.response);
+      console.log(xhr.responseText);
+      
       exp.go(); //use exp.go() if and only if there is no "present" data.
     }
   });
