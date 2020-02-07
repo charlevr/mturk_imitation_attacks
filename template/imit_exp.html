@@ -146,6 +146,10 @@
   <div class="slide" id="single_trial">
     </br>
     </br>
+    <p class="err_repeat">Hi, it seems like you have done this experiment before. We will only
+      allow you to attempt this experiment once. Thank you for participating
+      and feel free to attempt any of our other experiments in the future. 
+    </p>
     <div align="left">
       <b>The emails that you will copy the style of: </b>
       </br>
@@ -172,20 +176,21 @@
       <i>(remember, your response should be in English with at least 700 characters)</i>
       </br>
       </br>
-      <textarea type="text" id="text_response" rows="10" cols="100"></textarea>
+      <textarea type="text" class="response" id="text_response" rows="10" cols="100"></textarea>
       <br>
 
       <button onclick="char_count()">Check number of characters:</button>
       <p class="num_chars">0</p>
       <br>
 
-      <button onclick="_s.button()">Continue</button>
+      <button class="cont_exp" onclick="_s.button()">Continue</button>
 
       <p class="err">Please write more than 700 characters.</p>
       <p class="err_non_english">Please write your response in English.</p>
       <p class="err_same">Please make your response more different from the sample response
         and your previous responses.
       </p>
+      
     </div>
   </div>
 
