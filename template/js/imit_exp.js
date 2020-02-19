@@ -266,13 +266,20 @@ function make_slides(f) {
   return slides;
 }
 
+//Make this wait until response is recieved
+//Make it send ip address
 function handle_order()
 {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost:8888", false);
-  xhr.send("dsfsafasdfsdfsaf h");
+  xhr.send("zsfgsdgsd h");
 
-  // TODO: make this work for asynch, if necessary. 
+  $.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
+    const ip_info = JSON.stringify(data, null, 2);
+    const ip_obj = JSON.parse(ip_info)
+    console.log(ip_obj.ip)
+  });
+
   console.log(xhr.responseText);
   order = xhr.responseText.split(",");
   return order
