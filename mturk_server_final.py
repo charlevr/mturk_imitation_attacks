@@ -14,6 +14,7 @@ prompts = [['01', '12', '53', '65', '30'], ['46', '93', '74', '05', '82'], ['41'
            ['11', '76', '80', '04', '52'], ['34', '91', '72', '40', '86']]
 
 
+# This will probably only work on Unix-like systems?
 # Taken from ibex farm github.
 def lock_and_open(filename, mode):
     f = open(filename, mode)
@@ -26,12 +27,6 @@ def unlock_and_close(f):
     #    if HAVE_FLOCK:
     #        fcntl.flock(f.fileno(), 8)
     f.close()
-
-
-'''
-Use xhttp response text for java script part
-make it asynchronous
-'''
 
 
 def handle_counter():

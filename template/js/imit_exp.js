@@ -272,17 +272,24 @@ function handle_order()
 {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost:8888", false);
-  xhr.send("zsfgsdgsd h");
-
-  $.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
-    const ip_info = JSON.stringify(data, null, 2);
-    const ip_obj = JSON.parse(ip_info)
-    console.log(ip_obj.ip)
-  });
-
+  xhr.send(turk.workerId);
   console.log(xhr.responseText);
   order = xhr.responseText.split(",");
   return order
+}
+
+function get_ip_and_order()
+{
+  return $.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
+    const ip_info = JSON.stringify(data, null, 2);
+    const ip_obj = JSON.parse(ip_info)
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8888", false);
+    xhr.send(ip_obj.ip)
+    console.log(xhr.responseText);
+    order = xhr.responseText.split(",");
+    return order
+  });
 }
 
 function char_count() {
@@ -395,6 +402,7 @@ function init() {
   $('.slide').hide(); //hide everything
 
   //make sure turkers have accepted HIT (or you're not in mturk)
+  console.log(turk.workerId)
   $("#start_button").click(function () {
     if (turk.previewMode) {
       $("#mustaccept").show();
