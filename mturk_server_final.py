@@ -80,5 +80,6 @@ class MTurkHandler(http.server.BaseHTTPRequestHandler):
 
 with socketserver.TCPServer(("", PORT), MTurkHandler) as httpd:
     print("serving at port", PORT)
-    #httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/etc/ssl/certs/langproc_socsci_uci_edu_cert.cer', keyfile='/etc/ssl/private/langproc.key', server_side=True)
+    httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/etc/ssl/certs/langproc_socsci_uci_edu_cert.cer',
+                                   keyfile='/etc/ssl/private/langproc.key', server_side=True)
     httpd.serve_forever()
