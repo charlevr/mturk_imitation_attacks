@@ -271,7 +271,7 @@ function make_slides(f) {
 function handle_order()
 {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://langproc.socsci.uci.edu:8888", false);
+  xhr.open("POST", "https://langproc.socsci.uci.edu:443", false);
   xhr.send(turk.workerId);
   console.log(xhr.responseText);
   order = xhr.responseText.split(",");
