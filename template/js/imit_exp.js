@@ -1,5 +1,4 @@
 
-
 function make_slides(f) {
   var slides = {};
 
@@ -174,8 +173,7 @@ function make_slides(f) {
       if(stim == "rejected")
       {
         $(".err_repeat").show();
-        $(".cont_exp").hide();
-        $(".response").hide();
+        $(".full_page").hide();
       }
       else
       {
@@ -191,10 +189,10 @@ function make_slides(f) {
     },
 
     button: function () {
-      s1 = $(".prompt_1").val();
-      s2 = $(".prompt_2").val();
-      s3 = $(".prompt_3").val();
-      prompt = $(".prompt").val()
+      s1 = $(".prompt_1").text();
+      s2 = $(".prompt_2").text();
+      s3 = $(".prompt_3").text();
+      prompt = $(".prompt").text()
       response = $("#text_response").val().trim();
 
       $(".err").hide();
@@ -233,6 +231,7 @@ function make_slides(f) {
     name: "subj_info",
     submit: function (e) {
       //if (e.preventDefault) e.preventDefault(); // I don't know what this means.
+      handle_counter()
       exp.subj_data = {
         language: $("#language").val(),
         enjoyment: $("#enjoyment").val(),
@@ -278,18 +277,11 @@ function handle_order()
   return order
 }
 
-function get_ip_and_order()
+function handle_counter()
 {
-  return $.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
-    const ip_info = JSON.stringify(data, null, 2);
-    const ip_obj = JSON.parse(ip_info)
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8888", false);
-    xhr.send(ip_obj.ip)
-    console.log(xhr.responseText);
-    order = xhr.responseText.split(",");
-    return order
-  });
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://langproc.socsci.uci.edu:443", false);
+  xhr.send( null ) ;
 }
 
 function char_count() {

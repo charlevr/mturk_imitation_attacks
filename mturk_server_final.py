@@ -13,7 +13,6 @@ prompts = [['01', '12', '53', '65', '30'], ['46', '93', '74', '05', '82'], ['41'
                '32', '73', '64', '96', '20'], ['45', '92', '71', '50', '06'],
            ['11', '76', '80', '04', '52'], ['34', '91', '72', '40', '86']]
 
-
 # This will probably only work on Unix-like systems?
 # Taken from ibex farm github.
 def lock_and_open(filename, mode):
@@ -28,15 +27,20 @@ def unlock_and_close(f):
     #        fcntl.flock(f.fileno(), 8)
     f.close()
 
-
 def handle_counter():
+    with lock_and_open("counter.txt", "r+") as infile:
+        f_content = infile.read()
+        pos = int(str(f_content))
+        infile.seek(0)
+        return pos
+
+def add_counter():
     with lock_and_open("counter.txt", "r+") as infile:
         f_content = infile.read()
         pos = int(str(f_content))
         infile.seek(0)
         infile.truncate()
         infile.write(str(pos+1))
-        return pos
 
 
 def check_id(id):
@@ -74,8 +78,10 @@ class MTurkHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        self.send_header("Content-type", "text")
+        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
+        add_counter()
 
 
 with socketserver.TCPServer(("", PORT), MTurkHandler) as httpd:
