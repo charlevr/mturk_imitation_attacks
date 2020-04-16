@@ -4,7 +4,7 @@ import os
 import ssl
 import fcntl
 
-PORT = 8888
+PORT = 443
 
 prompts = [['01', '12', '53', '65', '30'], ['46', '93', '74', '05', '82'], ['41', '95', '33', '60', '16'], ['35', '56', '21', '70', '63'],
            ['44', '02', '10', '66', '83'], ['81', '15', '94', '36', '23'], [
@@ -15,6 +15,8 @@ prompts = [['01', '12', '53', '65', '30'], ['46', '93', '74', '05', '82'], ['41'
 
 # This will probably only work on Unix-like systems?
 # Taken from ibex farm github.
+
+
 def lock_and_open(filename, mode):
     f = open(filename, mode)
     fcntl.flock(f.fileno(), 2)
@@ -27,12 +29,14 @@ def unlock_and_close(f):
     #        fcntl.flock(f.fileno(), 8)
     f.close()
 
+
 def handle_counter():
     with lock_and_open("counter.txt", "r+") as infile:
         f_content = infile.read()
         pos = int(str(f_content))
         infile.seek(0)
         return pos
+
 
 def add_counter():
     with lock_and_open("counter.txt", "r+") as infile:
