@@ -14,6 +14,7 @@ function make_slides(f) {
   slides.instructions = slide({
     name: "instructions",
     button: function () {
+      handle_counter()
       exp.go(); //use exp.go() if and only if there is no "present" data.
     }
   });
@@ -234,7 +235,7 @@ function make_slides(f) {
     name: "subj_info",
     submit: function (e) {
       //if (e.preventDefault) e.preventDefault(); // I don't know what this means.
-      handle_counter()
+      
       exp.subj_data = {
         language: $("#language").val(),
         enjoyment: $("#enjoyment").val(),
