@@ -274,7 +274,7 @@ function make_slides(f) {
 function handle_order()
 {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://langproc.socsci.uci.edu:443", false);
+  xhr.open("POST", "http://ec2-13-57-219-202.us-west-1.compute.amazonaws.com", false);
   xhr.send(turk.workerId);
   console.log(xhr.responseText);
   order = xhr.responseText.split(",");
@@ -284,7 +284,7 @@ function handle_order()
 function handle_counter()
 {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://langproc.socsci.uci.edu:443", false);
+  xhr.open("GET", "http://ec2-13-57-219-202.us-west-1.compute.amazonaws.com", false);
   xhr.send( null ) ;
 }
 
